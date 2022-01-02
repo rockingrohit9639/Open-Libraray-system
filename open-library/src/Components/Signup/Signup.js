@@ -28,26 +28,11 @@ function Signup() {
 
     try {
       const res = await registerUser(formData);
+      console.log(res);
       if (res.status === 200) {
-        toast.success(res.data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.success(res.data.message);
       } else {
-        toast.error(res.data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.error(res.data.message);
       }
 
       setData({
@@ -57,22 +42,26 @@ function Signup() {
         password: "",
       });
     } catch (e) {
-      console.log(e);
-      toast.error("Something went wrong. Please try again.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      // console.log(e);
+      if (e.response.status === 400) {
+        toast.error(e.response.data.message);
+      }
     }
   };
 
   return (
     <div className="base">
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <form className="base_container" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="fname" className="form-label">
