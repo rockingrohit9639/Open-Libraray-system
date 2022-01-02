@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const isAuth = useSelector((state) => state.isAuth);
+
   return (
     <div className="w-100">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,21 +30,27 @@ function Navbar() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/signup">
-                  Signup
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/logout">
-                  Logout
-                </Link>
-              </li>
+
+              {isAuth ? (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/logout">
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/signup">
+                      Signup
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
             <form className="d-flex">
               <input
