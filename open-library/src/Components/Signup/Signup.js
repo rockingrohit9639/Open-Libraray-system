@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { registerUser } from "../../axios/endpoints";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [data, setData] = useState({
@@ -9,6 +10,7 @@ function Signup() {
     phone: "",
     password: "",
   });
+  const history = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,9 +30,10 @@ function Signup() {
 
     try {
       const res = await registerUser(formData);
-      console.log(res);
+      // console.log(res);
       if (res.status === 200) {
         toast.success(res.data.message);
+        history.replace("/login");
       } else {
         toast.error(res.data.message);
       }
@@ -43,7 +46,7 @@ function Signup() {
       });
     } catch (e) {
       // console.log(e);
-      if (e.response.status === 400) {
+      if (e.response) {
         toast.error(e.response.data.message);
       }
     }
