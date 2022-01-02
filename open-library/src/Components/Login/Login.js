@@ -83,6 +83,9 @@ function Login() {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
+        <p className="text-muted my-3">
+          Do not have an account ? <Link to="/signup">Signup here</Link>
+        </p>
       </form>
     </div>
   );

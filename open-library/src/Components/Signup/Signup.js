@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { registerUser } from "../../axios/endpoints";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const [data, setData] = useState({
@@ -126,6 +126,9 @@ function Signup() {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
+        <p className="text-muted my-3">
+          Already have an account ? <Link to="/login">Login here</Link>
+        </p>
       </form>
     </div>
   );
