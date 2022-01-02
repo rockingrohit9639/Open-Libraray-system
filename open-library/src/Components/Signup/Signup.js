@@ -10,7 +10,7 @@ function Signup() {
     phone: "",
     password: "",
   });
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +33,7 @@ function Signup() {
       // console.log(res);
       if (res.status === 200) {
         toast.success(res.data.message);
-        history.replace("/login");
+        navigate("/login", { replace: true });
       } else {
         toast.error(res.data.message);
       }

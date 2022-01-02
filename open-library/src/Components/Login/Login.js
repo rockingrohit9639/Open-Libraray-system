@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { loginUser } from "../../axios/endpoints";
 import "./Login.css";
+import { ToastContainer, toast } from "react-toastify";
 
 function Login() {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,13 +19,13 @@ function Login() {
 
     try {
       const res = await loginUser(formData);
-      console.log(res);
+      // console.log(res);
       if (res.status === 200) {
         localStorage.setItem("@tk", res.data.token);
         localStorage.setItem("email", res.data.email);
         localStorage.setItem("name", res.data.name);
-        toast.success(e.response.data.message);
-        history.replace("/");
+        toast.success(res.data.message);
+        navigate("/", { replace: true });
       } else {
         toast.error(e.response.data.message);
       }
