@@ -9,6 +9,7 @@ import {
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/Signup/Signup";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
