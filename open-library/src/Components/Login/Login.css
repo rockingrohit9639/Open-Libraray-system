@@ -1,4 +1,4 @@
-.login {
+.base {
   width: 100%;
   min-height: 90vh;
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.login_container {
+.base_container {
   background-color: rgb(245, 245, 245);
   padding: 2rem;
   min-width: 40%;

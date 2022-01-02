@@ -3,8 +3,8 @@ import "./Login.css";
 
 function Login() {
   return (
-    <div className="login">
-      <form className="login_container">
+    <div className="base">
+      <form className="base_container">
         <div class="mb-3">
           <label for="email" class="form-label">
             Email address
@@ -15,6 +15,7 @@ function Login() {
             id="email"
             name="email"
             placeholder="name@example.com"
+            required
           />
         </div>
         <div class="mb-3">
@@ -26,9 +27,12 @@ function Login() {
             class="form-control"
             id="password"
             name="password"
+            required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     </div>
   );
