@@ -1,0 +1,14 @@
+.base {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.base_container {
+  background-color: rgb(245, 245, 245);
+  padding: 2rem;
+  min-width: 40%;
+  box-shadow: 0 5px 9px -3px rgba(0, 0, 0, 0.3);
+}
