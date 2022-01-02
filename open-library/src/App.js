@@ -1,7 +1,28 @@
+import React from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom"
+import Home from "./Components/Home/Home";
+import Login from "./Components/Login/Login";
+import Signup from "./Components/Signup/Signup";
+
 function App() {
   return (
     <div className="App">
-      <h1>Open Source Library</h1>
+      <Router>
+        <Navbar />
+        <Routes>
+
+        <Route path="/" element={<Home />}  />
+        <Route path="/login" element={<Login />}  />
+        <Route path="/signup" element={<Signup />}  />
+
+        </Routes>
+      </Router>
     </div>
   );
 }
