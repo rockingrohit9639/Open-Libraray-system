@@ -32,11 +32,18 @@ function Navbar() {
               </li>
 
               {isAuth ? (
+                <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/addnewbook">
+                    Add New Book
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/logout">
                     Logout
                   </Link>
                 </li>
+                </>
               ) : (
                 <>
                   <li className="nav-item">
